@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Food Blog</title>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width = device-width, initial-scale = 1, shrink-to-fit = no"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <aside id="leftside"></aside>
+    <aside id="rightside"></aside>
+    <div id="container">
+      <header id="component1">
+        <blogtitle></blogtitle>
+        <div id="component3">
+          <navbar></navbar>
+        </div>
+      </header>
+
+      <main>
+        <aside id="photos">
+          <blogphoto></blogphoto>
+        </aside>
+        <div id="component2">
+          <blogcomment></blogcomment>
+        </div>
+
+        <section id="blogposts">
+          <div class="post" v-for="blog in blogs" :blog="blog">
+            <img v-on:click="showbox" :src="blog.image" />
+            <span>{{blog.author}}</span>
+            <span>{{blog.date}}</span>
+            <span>{{blog.reply}}</span>
+            <p>{{blog.content}}</p>
+          </div>
+          <div id="modal" v-for="blog in blogs" :blog="blog">
+            <div id="close" v-on:click="closebox">X</div>
+            <h4>{{blog.author}}</h4>
+            <b>Foodie Level:</b> {{blog.foodie}} <br />
+            <b>Bio:</b>
+            <p>{{blog.bio}}</p>
+          </div>
+        </section>
+      </main>
+
+      <footer>&copy; Copyright FOOD BLOG</footer>
+    </div>
+  </body>
+  <!-- Bootstrap jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- Bootstrap Popper -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <!-- Bootstrap JS -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!-- VUE script -->
+  <script src="vuescript.js"></script>
+</html>
